@@ -3,20 +3,32 @@ import Button from "./Button";
 import Input from "./Input";
 
 class Form extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            dummyData: 0
+            newMessage: ''
         }
     }
+
+    updateMessage = (e) => {
+        this.setState({
+            newMessage: e.target.value
+        })
+    }
+
+    setMessage = (e) => {
+        e.preventDefault();
+        console.log('submit button pressed');
+    }
+
     render() {
         return (
             <form>
                 <label>
-                    Meddelande:
-                    <p>{this.props.message}</p>
-                    <Input />
-                    <Button />
+                    Type message:
+                    <Input updateMessage={this.updateMessage} />
+                    <Button onSubmit={this.setMessage} />
                 </label>
             </form>
         );
