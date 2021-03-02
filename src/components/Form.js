@@ -19,7 +19,10 @@ class Form extends Component {
 
     setMessage = (e) => {
         e.preventDefault();
-        console.log('submit button pressed');
+        this.setState({
+            newMessage: ''
+        })
+        this.props.setMessageInApp(this.state.newMessage);
     }
 
     render() {
@@ -27,7 +30,7 @@ class Form extends Component {
             <form>
                 <label>
                     Type message:
-                    <Input updateMessage={this.updateMessage} />
+                    <Input value={this.state.newMessage} updateMessage={this.updateMessage} />
                     <Button onSubmit={this.setMessage} />
                 </label>
             </form>

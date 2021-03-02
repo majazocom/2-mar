@@ -1,6 +1,6 @@
 const Input = (props) => {
     return (
-        <input type="text" onChange={props.updateMessage} />
+        <input type="text" value={props.value} onChange={props.updateMessage} />
     );
 }
 
